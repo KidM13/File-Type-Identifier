@@ -1,6 +1,7 @@
 import argparse
 import os
 from core.file_reader import read_header
+from core.signature_engine import detect_file_type
 def main():
     parser = argparse.ArgumentParser(description=' truetype - file type identifier')
     parser.add_argument('file', help='path to the file to analyze')
@@ -13,9 +14,9 @@ def main():
         print("invalid file")
         return
     header= read_header(file_path,no)
-    hex_output=" ".join(f"{byte:02x}" for byte in header)
-    print(hex_output)
-    print(f"analyzing file: {args.file}")
+    detected_type = detect_file_type(header)
+    print(f"detected file type: {detected_type}")
+
     if args.verbose:
         print("verbose mode enabled")
         print(f"analyzing file: {args.file}")
