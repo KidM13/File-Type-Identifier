@@ -9,6 +9,9 @@ def detect_file_type(header):
     for file_type, signature in SIGNATURES.items():
 
         if header.startswith(signature):
-            return file_type
+            return {
+    "type": file_type,
+    "signature": signature.hex().upper()
+}
 
     return "Unknown"
