@@ -21,15 +21,18 @@ def main():
     expected_type = EXTENSION_MAP.get(ext)
 
     if expected_type == detected_type:
-     status = "MATCH"
-    if expected_type is None:
+        status = "MATCH"
+    elif expected_type is None:
         status = "UNKNOWN EXTENSION"
         expected_type = "Unknown"
     else:
-     status = "MISMATCH"
+        status = "MISMATCH"
+
+    print(f"File: {file_path}")
+    print(f"extension: {ext}")
+    print(f"detected type: {detected_type}")
     print(status)
-    print(f"expected file type: {expected_type}")
-    print(f"detected file type: {detected_type}")
+
 
     if args.verbose:
         print("verbose mode enabled")
