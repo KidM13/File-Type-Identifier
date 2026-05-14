@@ -22,6 +22,9 @@ def main():
 
     if expected_type == detected_type:
      status = "MATCH"
+    if expected_type is None:
+        status = "UNKNOWN EXTENSION"
+        expected_type = "Unknown"
     else:
      status = "MISMATCH"
     print(status)
