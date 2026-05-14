@@ -1,7 +1,7 @@
 import argparse
 import os
 from core.file_reader import read_header
-from core.signature_engine import detect_file_type
+from core.signature_engine import EXTENSION_MAP, detect_file_type
 def main():
     parser = argparse.ArgumentParser(description=' truetype - file type identifier')
     parser.add_argument('file', help='path to the file to analyze')
@@ -18,6 +18,14 @@ def main():
         return
     header= read_header(file_path,no)
     detected_type = detect_file_type(header)
+    expected_type = EXTENSION_MAP.get(ext)
+
+    if expected_type == detected_type:
+     status = "MATCH"
+    else:
+     status = "MISMATCH"
+    print(status)
+    print(f"expected file type: {expected_type}")
     print(f"detected file type: {detected_type}")
 
     if args.verbose:
