@@ -5,7 +5,6 @@ SIGNATURES = {
     "ZIP": b"PK\x03\x04",
     "EXE": b"MZ"
 }
-
 EXTENSION_MAP = {
     "png": "PNG",
     "jpg": "JPG",
@@ -18,9 +17,6 @@ def detect_file_type(header):
     for file_type, signature in SIGNATURES.items():
 
         if header.startswith(signature):
-            return {
-    "type": file_type,
-    "signature": signature.hex().upper()
-}
+            return  file_type
 
     return "Unknown"
