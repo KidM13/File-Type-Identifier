@@ -10,6 +10,9 @@ def main():
     args = parser.parse_args()
     no=args.bytes
     file_path = os.path.abspath(args.file)
+    _, ext = os.path.splitext(file_path)
+
+    ext = ext.lower().replace(".", "")
     if not os.path.isfile(file_path):
         print("invalid file")
         return
