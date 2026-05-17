@@ -2,6 +2,7 @@ import argparse
 import os
 from core.file_reader import read_header
 from core.signature_engine import EXTENSION_MAP, detect_file_type
+from core.signature_engine import scan_signatures
 def main():
     parser = argparse.ArgumentParser(description=' truetype - file type identifier')
     parser.add_argument('file', help='path to the file to analyze')
@@ -33,6 +34,14 @@ def main():
     print(f"detected type: {detected_type}")
     print(status)
 
+    with open(file_path, "rb") as f:
+      data = f.read(4096)
+
+    matches = scan_signatures(data)
+    for match in matches:
+     print(
+        f"Found {match['type']} signature at offset {match['offset']}"
+    )
 
     if args.verbose:
         print("verbose mode enabled")
