@@ -20,3 +20,15 @@ def detect_file_type(header):
             return  file_type
 
     return "Unknown"
+
+def scan_signature(data):
+    matches =[]
+    for file_type,signature in SIGNATURES.items():
+        offset=data.find(signature)
+
+        if offset != -1:
+            matches.append({
+                "type": file_type,
+                "offset": offset
+            })
+    return matches
