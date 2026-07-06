@@ -1,14 +1,9 @@
 import argparse
 import os
 
-from core.file_reader import read_header
-from core.signature_engine import (
-    EXTENSION_MAP,
-    detect_file_type,
-    scan_signatures,
-)
-from formats.PNG import validate_png
-from core.analayzer import FileAnalyzer
+import report
+
+from core.analyzer import FileAnalyzer
 
 
 def main():
@@ -42,12 +37,18 @@ def main():
 
     
     # creating an instance of fileanaylzer
-    analyzer = FileAnalyzer(args.file)
+    analyzer = FileAnalyzer(args.file,
+                            args.bytes
+    )
+    
 
     # analyzing the file
     analyzer.analyze()
 
     #generating the report
+    result = analyzer.analyze()
+
+    print(report.generate_report(result))
         
     
 
