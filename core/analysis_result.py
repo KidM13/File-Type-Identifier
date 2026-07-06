@@ -5,5 +5,5 @@ class analysis_result:
     detected_type: str
     expected_type: str
     status: str
-    is_valid: str
+    validation: None | bool
     matches: list
