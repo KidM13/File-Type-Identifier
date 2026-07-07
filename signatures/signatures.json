@@ -1,0 +1,32 @@
+[
+    {
+        "name": "PNG",
+        "extension": "png",
+        "signature": "89504E470D0A1A0A",
+        "offset": 0
+    },
+    {
+        "name": "JPEG",
+        "extension": "jpg",
+        "signature": "FFD8FF",
+        "offset": 0
+    },
+    {
+        "name": "PDF",
+        "extension": "pdf",
+        "signature": "25504446",
+        "offset": 0
+    },
+    {
+        "name": "ZIP",
+        "extension": "zip",
+        "signature": "504B0304",
+        "offset": 0
+    },
+    {
+        "name": "EXE",
+        "extension": "exe",
+        "signature": "4D5A",
+        "offset": 0
+    }
+]
