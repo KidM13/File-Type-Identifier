@@ -1,9 +1,10 @@
 from dataclasses import dataclass
 @dataclass
-class analysis_result:
+class AnalysisResult:
     file_path: str
+    extension: str
     detected_type: str
     expected_type: str
     status: str
-    validation: None | bool
-    matches: list
+    validation: bool |None
+    matches: list[dict]# will add signature matches as a list of dictionaries
