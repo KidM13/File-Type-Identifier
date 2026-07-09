@@ -1,32 +1,131 @@
 [
+   
     {
-        "name": "PNG",
-        "extension": "png",
-        "signature": "89504E470D0A1A0A",
-        "offset": 0
-    },
-    {
-        "name": "JPEG",
-        "extension": "jpg",
-        "signature": "FFD8FF",
-        "offset": 0
-    },
-    {
-        "name": "PDF",
-        "extension": "pdf",
-        "signature": "25504446",
-        "offset": 0
-    },
-    {
-        "name": "ZIP",
-        "extension": "zip",
-        "signature": "504B0304",
-        "offset": 0
-    },
-    {
-        "name": "EXE",
-        "extension": "exe",
-        "signature": "4D5A",
-        "offset": 0
-    }
+    "name": "PNG",
+    "extension": "png",
+    "signature": "89504E470D0A1A0A",
+    "offset": 0
+},
+{
+    "name": "JPEG",
+    "extension": "jpg",
+    "signature": "FFD8FF",
+    "offset": 0
+},
+{
+    "name": "GIF",
+    "extension": "gif",
+    "signature": "474946383761",
+    "offset": 0
+},
+{
+    "name": "BMP",
+    "extension": "bmp",
+    "signature": "424D",
+    "offset": 0
+},
+{
+    "name": "TIFF",
+    "extension": "tif",
+    "signature": "49492A00",
+    "offset": 0
+},
+{
+    "name": "WEBP",
+    "extension": "webp",
+    "signature": "57454250",
+    "offset": 8
+},
+{
+    "name": "ICO",
+    "extension": "ico",
+    "signature": "00000100",
+    "offset": 0
+}
+
+
+
+,
+{
+    "name": "PDF",
+    "extension": "pdf",
+    "signature": "25504446",
+    "offset": 0
+},
+{
+    "name": "RTF",
+    "extension": "rtf",
+    "signature": "7B5C72746631",
+    "offset": 0
+}
+
+
+
+,
+{
+    "name": "ZIP",
+    "extension": "zip",
+    "signature": "504B0304",
+    "offset": 0
+},
+{
+    "name": "RAR",
+    "extension": "rar",
+    "signature": "526172211A0700",
+    "offset": 0
+},
+{
+    "name": "7Z",
+    "extension": "7z",
+    "signature": "377ABCAF271C",
+    "offset": 0
+},
+{
+    "name": "GZIP",
+    "extension": "gz",
+    "signature": "1F8B08",
+    "offset": 0
+}
+
+
+
+
+
+,
+{
+    "name": "EXE",
+    "extension": "exe",
+    "signature": "4D5A",
+    "offset": 0
+},
+{
+    "name": "ELF",
+    "extension": "elf",
+    "signature": "7F454C46",
+    "offset": 0
+}
+
+
+
+
+
+,
+{
+    "name": "MP3",
+    "extension": "mp3",
+    "signature": "494433",
+    "offset": 0
+},
+{
+    "name": "WAV",
+    "extension": "wav",
+    "signature": "57415645",
+    "offset": 8
+},
+{
+    "name": "AVI",
+    "extension": "avi",
+    "signature": "41564920",
+    "offset": 8
+}
 ]
