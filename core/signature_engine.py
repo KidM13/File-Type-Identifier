@@ -21,3 +21,60 @@ def load_signatures() -> list[dict]:
         signature["signature"] = bytes.fromhex(signature["signature"])
 
     return signatures
+# Load the database once
+SIGNATURES = load_signatures()
+
+# Build extension lookup automatically
+EXTENSION_MAP = {
+    signature["extension"]: signature["name"]
+    for signature in SIGNATURES
+}
+
+
+def detect_file_type(header: bytes) -> str:
+    """
+    Detect the file type using the loaded signatures.
+    """
+
+    for signature in SIGNATURES:
+
+        sig = signature["signature"]
+        offset = signature["offset"]
+
+        if header[offset: offset + len(sig)] == sig:
+            return signature["name"]
+
+    return "Unknown"
+
+
+def scan_signatures(data: bytes) -> list[dict]:
+    """
+    Scan the entire file for embedded signatures.
+    """
+
+    matches = []
+
+    for signature in SIGNATURES:
+
+        sig = signature["signature"]
+
+        start = 0
+
+        while True:
+
+            position = data.find(sig, start)
+
+            if position == -1:
+                break
+
+            matches.append(
+                {
+                    "type": signature["name"],
+                    "extension": signature["extension"],
+                    "offset": position,
+                }
+            )
+
+            start = position + 1
+
+    return matches
