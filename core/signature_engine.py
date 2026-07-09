@@ -41,11 +41,14 @@ def detect_file_type(header: bytes) -> str:
         sig = signature["signature"]
         offset = signature["offset"]
 
-        if header[offset: offset + len(sig)] == sig:
+        # Make sure enough bytes were read
+        if len(header) < offset + len(sig):
+            continue
+
+        if header[offset:offset + len(sig)] == sig:
             return signature["name"]
 
     return "Unknown"
-
 
 def scan_signatures(data: bytes) -> list[dict]:
     """
