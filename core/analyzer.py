@@ -1,4 +1,6 @@
 from core.file_reader import read_header
+from formats.PNG import validate_png
+import os
 class FileAnalyzer:
 
     def __init__(self, file_path,header_size=16):
@@ -11,8 +13,7 @@ class FileAnalyzer:
             detect_file_type,
             scan_signatures,
         )
-        from formats.PNG import validate_png
-        import os
+
 
         # Detect file type
         detected_type = detect_file_type(self.header)
