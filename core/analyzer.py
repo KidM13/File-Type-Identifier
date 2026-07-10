@@ -1,6 +1,9 @@
 from core.file_reader import read_header
 from formats.PNG import validate_png
 import os
+VALIDATORS={
+    "PNG":validate_png, #this will grow later
+}
 class FileAnalyzer:
 
     def __init__(self, file_path,header_size=16):
@@ -38,9 +41,10 @@ class FileAnalyzer:
         with open(self.file_path, "rb") as f:
             data = f.read(4096)
 
-        if detected_type == "PNG":
-            is_valid = validate_png(data)
+        validator = VALIDATORS.get(detected_type)
 
+        if validator:
+          is_valid = validator(data)
         # Embedded signature scan
         matches = scan_signatures(data)
 
