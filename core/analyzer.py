@@ -1,8 +1,10 @@
 from core.file_reader import read_header
+from formats.PDF import validate_pdf
 from formats.PNG import validate_png
 import os
 VALIDATORS={
     "PNG":validate_png, #this will grow later
+    "PDF":validate_pdf,
 }
 class FileAnalyzer:
 
