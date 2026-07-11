@@ -1,6 +1,7 @@
 from core.file_reader import read_header
 from formats.PDF import validate_pdf
 from formats.PNG import validate_png
+from analysis_result import AnalysisResult
 import os
 VALIDATORS={
     "PNG":validate_png, #this will grow later
@@ -50,21 +51,34 @@ class FileAnalyzer:
         # Embedded signature scan
         matches = scan_signatures(data)
 
-        # Report
-        print(f"File: {self.file_path}")
-        print(f"Extension: {ext}")
-        print(f"Detected Type: {detected_type}")
-        print(f"Status: {status}")
-        print(f"Structure Validation: {is_valid}")
-
-        print("\nEmbedded Signatures:")
-
-        if matches:
-            for match in matches:
+        self.results = AnalysisResult(
+    file_path=self.file_path,
+    detected_type=detected_type,
+    expected_type=expected_type,
+    status=status,
+    validation=is_valid,
+    matches=matches,
+)
+        def generate_report(results):
+            print("========================================\nTrueType File Analysis Report\n========================================")
+            print(f"File:\n{self.file_path}")
+            print(f"Detected Type: \n{detected_type}")
+            print(f"Expected Type:\n")
+            print(f"Status: \n{status}")
+            if validator:
+                print(f"validation: \n{validator}")
+            else:
+              print(f"validation: \n INVALID")  
+            print(f"Embedded Signatures:\n")
+            if matches:
+             for match in matches:
                 print(
                     f" - {match['type']} at offset {match['offset']}"
                 )
-        else:
-            print("None found")
+            else:
+               print("None found")
 
+
+        
+        
 
