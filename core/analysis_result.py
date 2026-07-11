@@ -6,5 +6,5 @@ class AnalysisResult:
     detected_type: str
     expected_type: str
     status: str
-    validation: bool |None
-    matches: list[dict]# will add signature matches as a list of dictionaries
+    validation: bool | None
+    matches: list# will add signature matches as a list of dictionaries

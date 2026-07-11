@@ -1,7 +1,7 @@
 from core.file_reader import read_header
 from formats.PDF import validate_pdf
 from formats.PNG import validate_png
-from analysis_result import AnalysisResult
+from core.analysis_result import AnalysisResult
 from core.signature_engine import (
             EXTENSION_MAP,
             detect_file_type,
@@ -55,8 +55,10 @@ class FileAnalyzer:
         # Embedded signature scan
         matches = scan_signatures(data)
 
+        # store results
         self.results = AnalysisResult(
     file_path=self.file_path,
+    extension=ext,
     detected_type=detected_type,
     expected_type=expected_type,
     status=status,

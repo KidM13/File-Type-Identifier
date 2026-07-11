@@ -20,6 +20,7 @@ def generate_report(result):
     report.append("=" * 40)
 
     report.append(f"File: {result.file_path}")
+    report.append(f"Extension: {result.extension}")
     report.append(f"Detected Type: {result.detected_type}")
     report.append(f"Expected Type: {result.expected_type}")
     report.append(f"Status: {result.status}")
