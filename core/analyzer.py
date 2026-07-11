@@ -2,6 +2,11 @@ from core.file_reader import read_header
 from formats.PDF import validate_pdf
 from formats.PNG import validate_png
 from analysis_result import AnalysisResult
+from core.signature_engine import (
+            EXTENSION_MAP,
+            detect_file_type,
+            scan_signatures,
+        )
 import os
 VALIDATORS={
     "PNG":validate_png, #this will grow later
@@ -12,13 +17,10 @@ class FileAnalyzer:
     def __init__(self, file_path,header_size=16):
         self.file_path = file_path
         self.header = read_header(file_path, header_size)
+        self.results = None
 
     def analyze(self):
-        from core.signature_engine import (
-            EXTENSION_MAP,
-            detect_file_type,
-            scan_signatures,
-        )
+        
 
 
         # Detect file type
@@ -39,7 +41,7 @@ class FileAnalyzer:
             status = "MISMATCH"
 
         # Structure validation
-        is_valid = "Not Checked"
+
 
         with open(self.file_path, "rb") as f:
             data = f.read(4096)
@@ -48,6 +50,8 @@ class FileAnalyzer:
 
         if validator:
           is_valid = validator(data)
+        else:
+            is_valid=None
         # Embedded signature scan
         matches = scan_signatures(data)
 
@@ -59,24 +63,7 @@ class FileAnalyzer:
     validation=is_valid,
     matches=matches,
 )
-        def generate_report(results):
-            print("========================================\nTrueType File Analysis Report\n========================================")
-            print(f"File:\n{self.file_path}")
-            print(f"Detected Type: \n{detected_type}")
-            print(f"Expected Type:\n")
-            print(f"Status: \n{status}")
-            if validator:
-                print(f"validation: \n{validator}")
-            else:
-              print(f"validation: \n INVALID")  
-            print(f"Embedded Signatures:\n")
-            if matches:
-             for match in matches:
-                print(
-                    f" - {match['type']} at offset {match['offset']}"
-                )
-            else:
-               print("None found")
+        
 
 
         
