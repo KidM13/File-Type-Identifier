@@ -4,6 +4,7 @@ import os
 import report
 
 from core.analyzer import FileAnalyzer
+from reporting import formatter
 
 
 def main():
@@ -46,9 +47,7 @@ def main():
     analyzer.analyze()
 
     #generating the report
-    result = analyzer.analyze()
-
-    print(report.generate_report(result))
+    print(formatter.generate_report(analyzer.results))
         
     
 
