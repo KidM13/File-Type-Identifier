@@ -1,6 +1,8 @@
 from core.file_reader import read_header
 from formats.PDF import validate_pdf
 from formats.PNG import validate_png
+from formats.JPEG import validate_jpeg
+from formats.ZIP import validate_zip
 from core.analysis_result import AnalysisResult
 from core.signature_engine import (
             EXTENSION_MAP,
@@ -11,6 +13,8 @@ import os
 VALIDATORS={
     "PNG":validate_png, #this will grow later
     "PDF":validate_pdf,
+    "JPEG": validate_jpeg,
+    "ZIP": validate_zip,
 }
 class FileAnalyzer:
 
