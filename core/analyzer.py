@@ -28,7 +28,17 @@ class FileAnalyzer:
 
 
         # Detect file type
-        detected_type = detect_file_type(self.header)
+        match = detect_file_type(self.header)
+
+        #extracting the information we need
+        if match:
+         detected_type = match["name"]
+         matched_signature = match["signature"].hex().upper()
+         signature_offset = match["offset"]
+        else:
+         detected_type = "Unknown"
+         matched_signature = None
+         signature_offset = None
 
         # Extension analysis
         _, ext = os.path.splitext(self.file_path)
@@ -52,6 +62,8 @@ class FileAnalyzer:
 
         validator = VALIDATORS.get(detected_type)
 
+        is_valid = None
+
         if validator:
           is_valid = validator(data)
         else:
@@ -67,6 +79,8 @@ class FileAnalyzer:
     expected_type=expected_type,
     status=status,
     validation=is_valid,
+    matched_signature=matched_signature,
+    signature_offset=signature_offset,
     matches=matches,
 )
         
