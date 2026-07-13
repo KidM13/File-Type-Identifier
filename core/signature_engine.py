@@ -46,7 +46,7 @@ def detect_file_type(header: bytes) -> str:
             continue
 
         if header[offset:offset + len(sig)] == sig:
-            return signature["name"]
+            return signature
 
     return "Unknown"
 
