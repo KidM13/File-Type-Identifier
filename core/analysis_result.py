@@ -7,4 +7,6 @@ class AnalysisResult:
     expected_type: str
     status: str
     validation: bool | None
+    matched_signature: str | None
+    signature_offset: int | None
     matches: list# will add signature matches as a list of dictionaries
