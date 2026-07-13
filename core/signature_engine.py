@@ -48,7 +48,7 @@ def detect_file_type(header: bytes) -> dict | None:
         if header[offset:offset + len(sig)] == sig:
             return signature
 
-    return "None"
+    return None
 
 def scan_signatures(data: bytes) -> list[dict]:
     """
