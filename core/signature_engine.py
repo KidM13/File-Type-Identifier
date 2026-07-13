@@ -18,8 +18,8 @@ def load_signatures() -> list[dict]:
 
     # Convert each hex signature into bytes
     for signature in signatures:
-        signature["signature"] = bytes.fromhex(signature["signature"])
-
+        signature["signature_bytes"] = bytes.fromhex(
+            signature["signature"])
     return signatures
 # Load the database once
 SIGNATURES = load_signatures()
@@ -31,14 +31,14 @@ EXTENSION_MAP = {
 }
 
 
-def detect_file_type(header: bytes) -> str:
+def detect_file_type(header: bytes) -> dict | None:
     """
     Detect the file type using the loaded signatures.
     """
 
     for signature in SIGNATURES:
 
-        sig = signature["signature"]
+        sig = signature["signature_bytes"]
         offset = signature["offset"]
 
         # Make sure enough bytes were read
@@ -48,7 +48,7 @@ def detect_file_type(header: bytes) -> str:
         if header[offset:offset + len(sig)] == sig:
             return signature
 
-    return "Unknown"
+    return "None"
 
 def scan_signatures(data: bytes) -> list[dict]:
     """
@@ -59,7 +59,7 @@ def scan_signatures(data: bytes) -> list[dict]:
 
     for signature in SIGNATURES:
 
-        sig = signature["signature"]
+        sig = signature["signature_bytes"]
 
         start = 0
 
