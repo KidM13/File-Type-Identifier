@@ -25,6 +25,12 @@ def generate_report(result):
     report.append(f"Expected Type: {result.expected_type}")
     report.append(f"Status: {result.status}")
     report.append(f"Validation: {validation}")
+    if result.matched_signature is None:
+     report.append("Matched Signature : None")
+     report.append("Signature Offset  : N/A")
+    else:
+     report.append(f"Matched Signature : {result.matched_signature}")
+     report.append(f"Signature Offset  : {result.signature_offset}")
 
     report.append("")
     report.append("Embedded Signatures:")
