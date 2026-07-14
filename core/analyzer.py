@@ -3,6 +3,15 @@ from formats.PDF import validate_pdf
 from formats.PNG import validate_png
 from formats.JPEG import validate_jpeg
 from formats.ZIP import validate_zip
+from formats.GIF import validate_gif
+from formats.BMP import validate_bmp
+from formats.WAV import validate_wav
+from formats.AVI import validate_avi
+from formats.EXE import validate_exe
+from formats.ELF import validate_elf
+
+
+
 from core.analysis_result import AnalysisResult
 from core.signature_engine import (
             EXTENSION_MAP,
@@ -11,10 +20,16 @@ from core.signature_engine import (
         )
 import os
 VALIDATORS={
-    "PNG":validate_png, #this will grow later
-    "PDF":validate_pdf,
+    "PNG": validate_png, #this will grow later
+    "PDF": validate_pdf,
     "JPEG": validate_jpeg,
     "ZIP": validate_zip,
+    "GIF": validate_gif,
+    "BMP": validate_bmp,
+    "WAV": validate_wav,
+    "AVI": validate_avi,
+    "EXE": validate_exe,
+    "ELF": validate_elf
 }
 class FileAnalyzer:
 
