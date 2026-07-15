@@ -47,7 +47,7 @@ File-Type-Identifier/
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/KidM13/File-Type-Identifier.git
 cd File-Type-Identifier
 ```
 
