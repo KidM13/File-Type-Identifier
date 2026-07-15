@@ -48,7 +48,7 @@ class FileAnalyzer:
         #extracting the information we need
         if match:
          detected_type = match["name"]
-         matched_signature = match["signature"].hex().upper()
+         matched_signature = match["signature"].upper()
          signature_offset = match["offset"]
         else:
          detected_type = "Unknown"
