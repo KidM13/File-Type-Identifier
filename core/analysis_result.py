@@ -9,4 +9,4 @@ class AnalysisResult:
     validation: bool | None
     matched_signature: str | None
     signature_offset: int | None
-    matches: list# will add signature matches as a list of dictionaries
+    matches: list
