@@ -73,7 +73,7 @@ class FileAnalyzer:
 
 
         with open(self.file_path, "rb") as f:
-            data = f.read(4096)
+            data = f.read()
 
         validator = VALIDATORS.get(detected_type)
 
