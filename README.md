@@ -51,7 +51,13 @@ git clone https://github.com/KidM13/File-Type-Identifier.git
 cd File-Type-Identifier
 ```
 
-Python 3.11 or later is recommended.
+Install the project in editable mode:
+
+```bash
+pip install -e .
+```
+
+Python 3.11 or later is required.
 
 ## Usage
 
