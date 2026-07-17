@@ -6,12 +6,13 @@ TrueType is a command-line file identification tool written in Python. It identi
 
 ## Features
 
-* Detect file types using magic numbers.
-* Compare detected type with the file extension.
-* Validate the internal structure of supported formats.
-* Display the matched file signature and its offset.
-* Signature database stored in JSON for easy extension.
-* Modular architecture for future enhancements.
+- Detect file types using magic number signatures.
+- Compare detected type with the file extension.
+- Validate the internal structure of supported formats.
+- Display the matched signature and its offset.
+- Identify renamed files.
+- JSON-based signature database for easy extension.
+- Packaged as a command-line application.
 
 ## Supported Formats
 
