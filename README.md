@@ -64,19 +64,25 @@ Python 3.11 or later is required.
 Analyze a file:
 
 ```bash
-python main.py <file>
+truetype <file>
 ```
 
-Specify the number of bytes to read:
+Specify the number of header bytes:
 
 ```bash
-python main.py <file> --bytes 32
+truetype <file> --bytes 32
 ```
 
 Enable verbose output:
 
 ```bash
-python main.py <file> --verbose
+truetype <file> --verbose
+```
+
+Display help:
+
+```bash
+truetype --help
 ```
 
 ## Example Output
