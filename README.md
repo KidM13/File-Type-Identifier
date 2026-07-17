@@ -35,11 +35,12 @@ Validation is implemented for selected formats and can be extended by adding new
 File-Type-Identifier/
 ├── core/
 ├── formats/
-├── signatures/
-├── formatter.py
-├── analysis_result.py
-├── main.py
-└── README.md
+├── reporting/
+├── tests/
+├── cli.py
+├── pyproject.toml
+├── README.md
+└── LICENSE
 ```
 
 ## Installation
