@@ -112,7 +112,7 @@ Matched Signature: 89504E470D0A1A0A (offset 0)
 * JSON report export.
 * Graphical user interface.
 * Unit tests.
-* Package distribution through pip.
+
 
 ## License
 
