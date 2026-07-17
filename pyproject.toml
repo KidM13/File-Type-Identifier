@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "truetype"
+version = "1.0.0"
+description = "Command-line file type identifier using magic numbers."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+
+authors = [
+    {name = "Kidus Mulugeta"}
+]
+
+keywords = [
+    "cybersecurity",
+    "file",
+    "magic-number",
+    "forensics"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+
+[project.scripts]
+truetype = "cli:main"
+[tool.setuptools]
+packages = [
+    "core",
+    "formats",
+    "reporting",
+]
+
+py-modules = [
+    "cli",
+]
+[tool.setuptools.package-data]
+"core.signatures" = ["signatures.json"]
