@@ -108,11 +108,11 @@ Matched Signature: 89504E470D0A1A0A (offset 0)
 
 ## Future Improvements
 
-* Additional format validators.
-* JSON report export.
-* Graphical user interface.
-* Unit tests.
-
+- Additional file format validators.
+- Recursive archive analysis.
+- JSON and XML report export.
+- Unit test suite.
+- Graphical user interface.
 
 ## License
 
